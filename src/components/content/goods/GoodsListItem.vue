@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goods-item" @click="goodsClick">
+    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -19,11 +19,29 @@ export default {
         return {}
       }
     }
+  },
+  methods: {
+    imageLoad() {
+      // this.$refs.scroll.reImage()
+      // console.log(1);
+      this.$bus.$emit('itemImageLoad')
+    },
+    goodsClick() {
+      // console.log(this);
+      this.$router.push('/Detail/' + this.goodsItem.iid)
+      // this.$router.push({
+      //   path: '/Detail',
+      //   query: {
+
+      //   }
+      // })
+    }
   }
 }
+
 </script>
 
-<style>
+<style >
 .goods-item {
     padding-bottom: 40px;
     position: relative;

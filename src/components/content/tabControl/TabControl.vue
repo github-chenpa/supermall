@@ -16,7 +16,7 @@ export default {
     titles: {
       type: Array,
       default() {
-        return []
+        return []   
       }
     }
   },
@@ -27,13 +27,14 @@ export default {
   },
   methods: {
     itemClick(index) {
-      this.currentIndex = index
+      this.currentIndex = index;
+      this.$emit('tabClick',index)
     }
   }
 }
 </script>
 
-<style>
+<style >
   .tab-control {
     display: flex;
     text-align: center;

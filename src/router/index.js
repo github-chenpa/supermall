@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //利用懒加载引入创建映射关系
-const Home = () => import('../views/Home/Home')
-const Category = () => import('../views/Category/Category')
-const Shopcart = () => import('../views/Shopcart/Shopcart')
-const Profile = () => import('../views/Profile/Profile')
-
+const Home = () => import('views/Home/Home')
+const Category = () => import('views/Category/Category')
+const Shopcart = () => import('views/Shopcart/Shopcart')
+const Profile = () => import('views/Profile/Profile')
+const Detail = () => import('views/detail/Detail')
 
 // 安装插件
 Vue.use(VueRouter)
@@ -34,6 +34,10 @@ const routes = [
     path: '/Profile',
     component: Profile
   },
+  {
+    path: '/Detail',
+    component: Detail
+  }
 ]
 
 // 创建路由对象
